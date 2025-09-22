@@ -1,0 +1,239 @@
+[Event "Interno CXMEIER"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[White "João Galetti Carvalho"]
+[Black "João manoel Strauss Fernandes"]
+[Result "0-1"]
+[TimeControl "45+15"]
+[Annotator "Henrique Reis de Moraes"]
+[Variant "Standard"]
+[ECO "C44"]
+[Opening "Scotch Game: Scotch Gambit, London Defense"]
+[StudyName "Base CXMEIER"]
+[ChapterName "João Galetti - João Manoel"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/GxcOJh8Z"]
+[UTCDate "2024.10.09"]
+[UTCTime "11:23:07"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4 Bb4+ 5. Bd2 Bxd2+ 6. Nbxd2 d6 7. Bb5 Bd7 8. Bxc6 bxc6 9. Nxd4 Ne7 10. O-O O-O 11. f4 c5 12. Ne2 d5 13. exd5 Nxd5 14. Qc1 Qe7 15. Ng3 Nf6 16. Re1 Qd6 17. Nde4 Nxe4 18. Nxe4 Qd4+ 19. Kh1 Bc6 20. c3 Qd5 21. c4 Qd4 22. Qc3 Bxe4 23. Qxd4 Bxg2+ 24. Kxg2 cxd4 25. Re7 Rac8 26. b4 0-1
+
+
+[Event "Campeonato Popular FEXERJ 2022"]
+[Site "Rio de Janeiro, RJ"]
+[Date "2022.11.26"]
+[Round "01"]
+[White "Artur Carneiro"]
+[Black "Ivan Neves"]
+[Result "0-1"]
+[Variant "Standard"]
+[ECO "B02"]
+[Opening "Alekhine Defense: Scandinavian Variation"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Artur Carneiro - Ivan Neves"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/Pd4bYBU7"]
+[Annotator "https://lichess.org/@/Hyorei"]
+
+1. e4 Nf6 2. Nc3 d5 3. exd5 Nxd5 4. Bb5+ c6 5. Ba4 Nxc3 6. bxc3 Qd5 7. Qe2 Qxg2 8. d3 Qxh1 9. Bg5 Qxg1+ 10. Kd2 Qxg5+ 11. f4 Qxf4+ 12. Kd1 Qxa4 13. d4 Bf5 14. Rc1 e6 15. Qd2 h6 16. Ke1 Be7 17. h3 Bg5 18. Qh2 Bxc1 19. Qc7 O-O 20. Qxb7 Qxc2 21. Qxa8 Qd2+ 22. Kf1 Bxh3+ 23. Kg1 Qg2# { 0-1 Black wins. } 0-1
+
+
+[Event "I Interno CXMEIER 2022"]
+[Site "Rio de Janeiro, RJ"]
+[Date "2022.01.12"]
+[Round "01"]
+[White "Klaus Bentes"]
+[Black "Almir de Almeida"]
+[Result "1/2-1/2"]
+[WhiteElo "10"]
+[BlackElo "1871"]
+[Variant "Standard"]
+[ECO "C02"]
+[Opening "French Defense: Advance Variation"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Klaus Bentes - Almir de Almeida"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/sUAI60fF"]
+[Annotator "https://lichess.org/@/Hyorei"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Qb6 5. Nf3 Nc6 6. Be2 cxd4 7. cxd4 Nge7 8. Na3 Nf5 9. Nc2 h5 10. a3 a5 11. O-O Be7 12. Rb1 a4 13. Be3 Bd7 14. h3 Na5 15. Bd2 Nb3 16. Bb4 Bb5 17. Bxb5+ Qxb5 18. Bxe7 Kxe7 19. Ne3 g6 20. Nxf5+ gxf5 21. h4 Rac8 22. Qe1 Rh6 23. Qe3 Rg6 24. Rfd1 Rc2 25. Nd2 Nxd2 26. Rxd2 Rxd2 27. Qxd2 Rg4 28. g3 f4 29. Kh2 fxg3+ 30. fxg3 Qb3 31. Qf2 Rxg3 32. Qxg3 Qc2+ 33. Qg2 Qxb1 34. Qd2 Qf5 35. Qb4+ Kd8 36. Qf8+ Kc7 37. Qd6+ Kc8 38. Qf8+ Kd7 39. Qd6+ { 1/2-1/2  wins. } 1/2-1/2
+
+
+[Event "???"]
+[Site "Rio de Janeiro, RJ"]
+[Date "2022.11.19"]
+[Result "1/2-1/2"]
+[Variant "Standard"]
+[ECO "E05"]
+[Opening "Catalan Opening: Open Defense, Classical Line"]
+[StudyName "Base CXMEIER"]
+[ChapterName "???"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/5IFTH8jU"]
+[Annotator "https://lichess.org/@/Hyorei"]
+
+1. d4 e6 2. c4 d5 3. Nf3 Nf6 4. g3 dxc4 5. Bg2 Be7 6. Ne5 O-O 7. O-O c6 8. Nxc4 Nbd7 9. Nc3 c5 10. a3 Rb8 11. g4 h6 12. f4 b6 13. g5 hxg5 14. fxg5 Nd5 15. g6 { 1/2-1/2  wins. } 1/2-1/2
+
+
+[Event "IV Interno CXMEIER 2022"]
+[Site "RIo de Jnaeiro, RJ"]
+[Date "2022.10.27"]
+[Round "04.06"]
+[White "Jonatas Azevedo"]
+[Black "Henrique Reis de Moraes"]
+[Result "1-0"]
+[WhiteElo "1698"]
+[BlackElo "10"]
+[Variant "Standard"]
+[ECO "D10"]
+[Opening "Slav Defense: Exchange Variation"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Jonatas Azevedo - Henrique Reis de Moraes"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/Lbc7xIB5"]
+[Annotator "https://lichess.org/@/Hyorei"]
+
+1. d4 d5 2. c4 c6 3. cxd5 cxd5 4. Nc3 Nf6 5. Nf3 Nc6 6. e3 e6 7. Be2 Bd6 8. O-O O-O 9. a3 Re8 10. Qc2 b6 11. Nxd5 Nxd4 12. Nxf6+ Qxf6 13. Nxd4 e5 14. Nb5 Bb8 15. Bf3 e4 16. Be2 Qg6 17. Bd1 Bh3 18. g3 Bxg3 19. hxg3 Re5 20. Nd4 f6 21. Qb3+ Kf8 22. Ne6+ Ke7 23. Nf4 { 1-0 White wins. } 1-0
+
+
+[Event "Interno CXMEIER"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Round "04"]
+[White "João Manoel Strauss Fernandes"]
+[Black "Marcos Vinícius Santiago Figueira"]
+[Result "1-0"]
+[TimeControl "45+15"]
+[Board "01"]
+[Annotator "Henrique Reis de Moraes"]
+[Variant "Standard"]
+[ECO "B01"]
+[Opening "Scandinavian Defense: Mieses-Kotroc Variation"]
+[StudyName "Base CXMEIER"]
+[ChapterName "João Manoel - Marcos Santiago"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/Jc9EZR2r"]
+[UTCDate "2024.10.09"]
+[UTCTime "11:50:13"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nf3 Nf6 4. d4 c6 5. c4 Qd6 6. Be2 Bf5 7. Nc3 e6 8. Nh4 Bg6 9. Nxg6 hxg6 10. g3 Be7 11. a3 a5 12. Bf4 Qd8 13. Qb3 Qc8 14. Bf3 Nbd7 15. O-O Nh5 16. Be3 e5 17. d5 Nc5 18. Qc2 Nf4 19. h4 Qh3 20. Bxf4 exf4 21. Bg2 Qg4 22. Qe2 Qxe2 23. Nxe2 cxd5 24. Bxd5 fxg3 25. fxg3 Bf6 26. Bxb7 Nxb7 27. Nf4 Bxb2 28. Rab1 Bd4+ 29. Kg2 O-O-O 30. Nd5 Bf6 31. Nxf6 gxf6 32. Rxf6 Rd7 33. Ra6 Rhd8 34. Ra8+ 1-0
+
+
+[Event "Interno CXMEIER 2023"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Round "03"]
+[White "Mauro Henrique de Moraes"]
+[Black "João Maoel Strauss Fernandes"]
+[Result "0-1"]
+[TimeControl "45+15"]
+[Termination "Brancas abandonaram"]
+[Board "01"]
+[Annotator "Henrique Reis de Moraes"]
+[Variant "Standard"]
+[ECO "C90"]
+[Opening "Ruy Lopez: Closed, Pilnik Variation"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Mauro Henrique - João Manoel"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/SowK5USL"]
+[UTCDate "2024.10.09"]
+[UTCTime "12:05:20"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. d3 b5 6. Bb3 Be7 7. O-O O-O 8. Re1 d6 9. c3 Na5 10. Bc2 c5 11. Nbd2 Qc7 12. Nf1 Re8 13. h3 Bf8 14. Bg5 Nd7 15. Ne3 f6 16. Bh4 Qd8 17. a4 Bb7 18. axb5 axb5 19. Bb1 c4 20. Nd2 Qc7 21. Ba2 Kh8 22. dxc4 bxc4 0-1
+
+
+[Event "Interno CXMEIER 2023"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Round "02"]
+[White "Luiz Claudio Fernandes"]
+[Black "Carlos Henrique Luz"]
+[Result "0-1"]
+[TimeControl "45+15"]
+[Board "03"]
+[Annotator "Henrique Reis de Moraes"]
+[Variant "Standard"]
+[ECO "D11"]
+[Opening "Slav Defense: Modern Line"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Luiz Claudio - Carlos Henrique"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/sKvBE79N"]
+[UTCDate "2024.10.09"]
+[UTCTime "12:14:05"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Bf5 4. Nc3 Nf6 5. g3 h6 6. Bg2 e6 7. O-O Bd6 8. Ne5 Nbd7 9. f4 O-O 10. a3 a5 11. c5 Bc7 12. a4 Nb8 13. Re1 Na6 14. b3 Nb4 15. e4 dxe4 16. Nxe4 Nxe4 17. Bxe4 Bxe4 18. Rxe4 Nd5 19. Bb2 Qe7 20. Rc1 Rad8 21. Qf3 Qf6 22. Rf1 Bxe5 23. fxe5 Qxf3 24. Rxf3 Rd7 25. Bc1 Rfd8 26. Bd2 Nb4 27. Bxb4 axb4 28. Rff4 Rc7 29. h4 Rd5 30. a5 Rcd7 31. h5 0-1
+
+
+[Event "Simultanea CXMEIER"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Date "2023.01.28"]
+[White "Rafael Ventura dos Santos"]
+[Black "Almir Souza de Almeida"]
+[Result "1-0"]
+[WhiteElo "2254"]
+[BlackElo "1865"]
+[Termination "Negras abandonaram"]
+[Board "01"]
+[Annotator "Henrique reis de Moraes"]
+[Variant "Standard"]
+[ECO "E69"]
+[Opening "King's Indian Defense: Fianchetto Variation, Classical Main Line"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Rafael Ventura - Almir Almeida"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/ue5HMI5P"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. g3 O-O 5. Bg2 d6 6. Nf3 c6 7. O-O Nbd7 8. e4 e5 9. h3 Ne8 10. Re1 exd4 11. Nxd4 Nc7 12. Be3 Nc5 13. Qe2 a5 14. Rad1 Bd7 15. f4 Qe7 16. Bf2 N7e6 17. Nc2 Na6 18. Qd2 Rad8 19. Qxd6 Qxd6 20. Rxd6 Bc8 21. Red1 Rxd6 22. Rxd6 Re8 23. Rd2 Nac5 24. f5 gxf5 25. exf5 1-0
+
+
+[Event "Interno CXMEIER 2023"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Round "05"]
+[White "Carlols Henrique Luz"]
+[Black "Roberto de Barros Feliciano"]
+[Result "0-1"]
+[TimeControl "45+15"]
+[Variant "Standard"]
+[ECO "A48"]
+[Opening "Torre Attack: Fianchetto Defense"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Carlos Henrique - Roberto Feliciano"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/ug2dXS9N"]
+[Annotator "https://lichess.org/@/Hyorei"]
+[UTCDate "2024.10.09"]
+[UTCTime "12:37:12"]
+
+1. d4 Nf6 2. Nf3 g6 3. Bg5 Bg7 4. Nbd2 d5 5. c3 Ne4 6. Nxe4 dxe4 7. Nd2 Qd5 8. Bf4 e5 9. dxe5 Bxe5 10. Bxe5 Qxe5 11. Nc4 Qe6 12. e3 Nc6 13. Qc2 Bd7 14. Be2 O-O 15. h3 a6 16. O-O b5 17. Nd2 Rae8 18. Nb3 Qe7 19. Rfd1 Bc8 20. Nd4 Na5 21. Rd2 Qg5 22. Kh2 Nb7 23. a4 c5 24. Nb3 c4 25. Nd4 Nc5 26. b3 Nd3 27. Bf1 Bd7 28. bxc4 bxc4 29. Qa2 Qa5 30. Qxc4 Rc8 31. Qa2 Qxc3 32. Ne2 Qe5+ 33. Ng3 Be6 34. Qa3 Rc3 35. Qe7 Rc7 36. Qa3 Re8 37. Bxd3 Rc3 38. Qb2 Rb8 39. Qxb8+ Qxb8 40. Bxa6 Qe5 41. Rad1 h5 42. Kg1 h4 43. Ne2 Ra3 44. Bb5 g5 45. Nd4 Bb3 46. Nxb3 Rxb3 47. Bd7 Rb2 48. Rxb2 Qxb2 0-1
+
+
+[Event "III Interno CXMEIER 2024"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Date "2024.06.26"]
+[Round "02"]
+[White "Carlos Alberto Mendes"]
+[Black "Gustavo Antonio Tavares"]
+[Result "0-1"]
+[TimeControl "45+15"]
+[Board "07"]
+[Annotator "Henrique Reis de Moraes"]
+[Variant "Standard"]
+[ECO "D31"]
+[Opening "Queen's Gambit Declined: Queen's Knight Variation"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Carlos Mendes - Gustavo Tavares"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/S5ydY4fw"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Bb4 4. Bd2 Bxc3 5. Bxc3 Nf6 6. cxd5 Qxd5 7. Bb4 Nc6 8. Bc3 O-O 9. e3 Rd8 10. Nf3 Ne4 11. Qc2 Nxc3 12. Qxc3 b5 13. a3 a5 14. Be2 b4 15. Qc4 Qxc4 16. Bxc4 Bb7 17. O-O Ne7 18. Ne5 Ng6 19. Nd3 Nh4 20. f3 Nf5 21. Kf2 Nd6 22. Ba2 Ba6 23. Rfd1 bxa3 24. bxa3 Rab8 25. Rab1 Nb5 26. Rdc1 Nxa3 27. Rxb8 Rxb8 28. Rxc7 Bxd3 29. Rc3 Nb1 30. Rxd3 Rb2+ 31. Kg3 Rxa2 32. Rb3 h6 33. Rxb1 a4 34. Rb8+ Kh7 35. Ra8 a3 36. Kf4 Rxg2 37. h4 a2 38. Ke4 Rh2 39. Kf4 Rxh4+ 40. Kg3 Rh5 41. Rxa2 Rg5+ 42. Kf2 f5 43. f4 Rg6 44. Kf3 h5 45. Rh2 Kh6 46. Rg2 Rg4 47. Rg3 g5 48. Rg2 Rxg2 49. Kxg2 h4 50. fxg5+ Kxg5 51. Kh3 f4 52. exf4+ Kxf4 53. Kxh4 Ke4 54. Kg3 Kxd4 55. Kf3 e5 56. Ke2 Ke4 57. Ke1 Ke3 58. Kd1 Kd3 59. Ke1 Ke3 60. Kd1 e4 61. Ke1 0-1
+
+
+[Event "III Interno CXMEIER 2024"]
+[Site "R. Frederico Méier, 18 - Sala 1 - Méier, Rio de Janeiro - RJ, 20780-010"]
+[Date "2024.07.10"]
+[Round "04"]
+[White "Rodrigo Rodrigues"]
+[Black "Luis Gustavo Mendes Oliveira"]
+[Result "0-1"]
+[WhiteElo "10"]
+[BlackElo "1640"]
+[TimeControl "45+15"]
+[Board "02"]
+[Annotator "Henrique Reis de Moraes"]
+[Variant "Standard"]
+[ECO "C50"]
+[Opening "Italian Game: Hungarian Defense"]
+[StudyName "Base CXMEIER"]
+[ChapterName "Rodrigo Rodrigues - Gustavo Oliveira"]
+[ChapterURL "https://lichess.org/study/HVxqdBzk/oEttOkUc"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Be7 4. c3 Nf6 5. Bxf7+ Kxf7 6. Ng5+ Kg8 7. O-O h6 8. Qb3+ d5 9. exd5 Qxd5 10. c4 Na5 11. Nc3 Nxb3 12. Nxd5 Nxd5 13. axb3 Bxg5 14. cxd5 Kh7 15. Re1 Bf6 16. Ra4 Bf5 17. Rc4 Rac8 18. b4 Rhd8 19. Rc5 c6 20. h3 Rxd5 21. b3 b6 22. Rxd5 cxd5 23. f3 Bc2 24. Re3 d4 25. Re1 Bxb3 26. Bb2 a5 27. Ba3 Kg6 28. g3 Rc2 29. Re4 Rxd2 30. Bc1 Rd1+ 31. Kh2 Rxc1 32. Rg4+ Kf5 33. Re4 Bd5 34. g4+ Kg6 35. b5 Bxe4 36. fxe4 Kg5 37. Kg3 Rc3+ 38. Kh2 Kh4 39. Kg2 a4 0-1
+
+
