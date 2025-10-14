@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox 
+from tkinter import Menu 
 import sqlite3
 
 janela = tkinter.Tk()
@@ -195,7 +196,9 @@ class Aplicacao(funcs):
         self.widgetsF1()
         self.lista_frame2()
         self.select_lista()
+        self.Menus()
         janela.mainloop()
+
 
     def tela(self):
         self.janela.title("Clube de Xadrez do Méier")
@@ -334,5 +337,19 @@ class Aplicacao(funcs):
                 if len(valores) > 16:
                     self.partida_text.delete(1.0, tkinter.END)
                     self.partida_text.insert(tkinter.END, valores[16])
+
+    def Menus(self):
+        menubar = Menu(self.janela)
+        self.janela.config(menu= menubar)
+        filemenu = Menu(menubar)
+        filemenu2 = Menu(menubar)
+
+        menubar.add_cascade(label = "Opções", menu= filemenu)
+        menubar.add_cascade(label = "sobre", menu= filemenu2)
+
+        filemenu.add_command(label = "sair")
+        filemenu2.add_command(label = "limpa cliente")
+
+
 
 Aplicacao()
