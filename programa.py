@@ -3,6 +3,10 @@ from tkinter import ttk
 from tkinter import messagebox 
 from tkinter import Menu 
 import sqlite3
+import re
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import datetime
 
 janela = tkinter.Tk()
 
@@ -212,7 +216,9 @@ class Aplicacao(funcs):
         self.frame_1.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
         self.frame_2 = tkinter.Frame(self.janela, bd=4, bg="white", highlightbackground="black", highlightthickness=3)
         self.frame_2.place(relx=0.02, rely=0.5, relwidth=0.96, relheight=0.46)
-
+        self.frame_3 = tkinter.Frame(self.janela, bd=4, bg="white", highlightbackground="black", highlightthickness=3)
+        self.frame_3.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
+        self.frame_3.place_forget()
     def widgetsF1(self):
         # Cria um canvas e scrollbar para o lado esquerdo (campos do formulário)
         left_canvas = tkinter.Canvas(self.frame_1, bg="white")
@@ -319,6 +325,127 @@ class Aplicacao(funcs):
         # Vincula evento de seleção - AGORA VAI FUNCIONAR!
         self.listaPar.bind("<<TreeviewSelect>>", self.mostrar_dados_selecionados)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def graficos_frame3(self, jogador="brancas"):
+        # Limpa widgets antigos
+        for widget in self.frame_3.winfo_children():
+            widget.destroy()
+
+        selecionado = self.listaPar.focus()
+        if not selecionado:
+            return
+
+        valores = self.listaPar.item(selecionado, "values")
+        if not valores:
+            return
+
+        jogador_brancas = valores[4]  # Coluna "Brancas"
+        jogador_pretas = valores[5]   # Coluna "Pretas"
+
+        # Escolhe qual jogador exibir
+        if jogador == "brancas":
+            jogador_atual = jogador_brancas
+            cor = "darkblue"
+        else:
+            jogador_atual = jogador_pretas
+            cor = "darkred"
+
+        # Função para obter dados do gráfico
+        def obter_dados_grafico(jogador):
+            self.conecta_bd()
+            self.cursor.execute("""
+                SELECT Data, Resultado, Brancas, Pretas
+                FROM partidas
+                WHERE (Brancas = ? OR Pretas = ?)
+                AND Data IS NOT NULL
+                ORDER BY Data
+            """, (jogador, jogador))
+            partidas = self.cursor.fetchall()
+            self.desconecta_bd()
+
+            datas, resultados = [], []
+            for data, resultado, brancas, pretas in partidas:
+                try:
+                    data_formatada = datetime.datetime.strptime(data.replace(".", "-"), "%Y-%m-%d").date()
+                except ValueError:
+                    continue
+
+                if resultado == "1-0":
+                    valor = 1 if brancas == jogador else 0
+                elif resultado == "0-1":
+                    valor = 1 if pretas == jogador else 0
+                else:
+                    valor = 0.5
+
+                datas.append(data_formatada)
+                resultados.append(valor)
+
+            return datas, resultados
+
+        datas, resultados = obter_dados_grafico(jogador_atual)
+
+        if datas:
+            fig, ax = plt.subplots(figsize=(8, 3), facecolor="white")
+            ax.plot(datas, resultados, marker='o', linestyle='-', color=cor)
+            ax.set_title(f"Desempenho de {jogador_atual}")
+            ax.set_xlabel("Data")
+            ax.set_ylabel("Resultado")
+            ax.set_yticks([0, 0.5, 1])
+            ax.set_yticklabels(["Derrota", "Empate", "Vitória"])
+            ax.grid(True, linestyle="--", alpha=0.5)
+
+            canvas = FigureCanvasTkAgg(fig, master=self.frame_3)
+            canvas.draw()
+            canvas.get_tk_widget().place(relx=0, rely=0.1, relwidth=1, relheight=0.85)  # ocupa a maior parte do frame
+
+        # Botão para alternar entre Brancas e Pretas
+        def alternar_grafico():
+            if jogador == "brancas":
+                self.graficos_frame3("pretas")
+            else:
+                self.graficos_frame3("brancas")
+
+        btn_alternar = tkinter.Button(self.frame_3, text="Alternar Jogador", command=alternar_grafico)
+        btn_alternar.place(relx=0.4, rely=0.01, relwidth=0.2, relheight=0.07)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def mostrar_dados_selecionados(self, event):
         selecionado = self.listaPar.focus()
         if selecionado:
@@ -338,6 +465,174 @@ class Aplicacao(funcs):
                     self.partida_text.delete(1.0, tkinter.END)
                     self.partida_text.insert(tkinter.END, valores[16])
 
+                self.graficos_frame3()
+
+
+
+
+
+
+
+
+
+
+    def salvar_partida(self, dados, partida_pgn):
+        """Salva uma partida individual no banco de dados."""
+        self.conecta_bd()
+        self.cursor.execute("""
+            INSERT INTO partidas (
+                Evento, Local_do_jogo, Data, Rodada, Brancas, Pretas,
+                Resultado, Controle_tempo, Codigo_ECO, Abertura,
+                Rating_Brancas, Rating_Pretas, Titulo_Brancas, Titulo_Pretas,
+                Terminacao, Tabuleiro, Partida
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (*dados, partida_pgn))
+        self.conn.commit()
+        self.desconecta_bd()
+
+    def importar_pgn(self, arquivo):
+        """Importa um arquivo .pgn com uma ou várias partidas e salva no banco."""
+        try:
+            with open(arquivo, "r", encoding="utf-8") as f:
+                conteudo = f.read()
+        except FileNotFoundError:
+            from tkinter import messagebox
+            messagebox.showerror("Erro", f"Arquivo {arquivo} não encontrado.")
+            return
+
+        # divide várias partidas dentro do mesmo arquivo
+        partidas = conteudo.strip().split("\n\n\n")
+
+        for partida in partidas:
+            # pega tags PGN (Event, Site, Date, etc.)
+            tags = dict(re.findall(r'\[(\w+)\s+"([^"]+)"\]', partida))
+
+            dados = [
+                tags.get("Event", ""),
+                tags.get("Site", ""),
+                tags.get("Date", tags.get("UTCDate", "")),
+                tags.get("Round", ""),
+                tags.get("White", ""),
+                tags.get("Black", ""),
+                tags.get("Result", ""),
+                tags.get("TimeControl", ""),
+                tags.get("ECO", ""),
+                tags.get("Opening", ""),
+                tags.get("WhiteElo", ""),
+                tags.get("BlackElo", ""),
+                tags.get("WhiteTitle", ""),
+                tags.get("BlackTitle", ""),
+                tags.get("Termination", ""),
+                tags.get("Board", ""),
+            ]
+
+            # extrai somente os lances (a partir do "1.")
+            match = re.search(r'1\. .*', partida, re.S)
+            somente_partida = match.group(0).strip() if match else ""
+
+            self.salvar_partida(dados, somente_partida)
+            print(f" Partida salva: {tags.get('White', '?')} x {tags.get('Black', '?')}")
+
+        # Atualiza a tabela após importar
+        self.select_lista()
+
+        from tkinter import messagebox
+        messagebox.showinfo("Importação concluída", f"{len(partidas)} partidas foram importadas com sucesso!")
+
+    def importar_pgn_dialogo(self):
+        """Abre o seletor de arquivo e importa o PGN escolhido."""
+        from tkinter import filedialog
+        arquivo = filedialog.askopenfilename(
+            title="Selecione um arquivo PGN",
+            filetypes=[("Arquivos PGN", "*.pgn"), ("Todos os arquivos", "*.*")]
+        )
+        if arquivo:
+            self.importar_pgn(arquivo)
+
+    def remover_duplicadas(self):
+        self.conecta_bd()
+
+        self.cursor.execute("""
+            SELECT 
+                cod, Evento, Local_do_jogo, Data, Rodada, Brancas, Pretas,
+                Resultado, Controle_tempo, Codigo_ECO, Abertura,
+                Rating_Brancas, Rating_Pretas, Titulo_Brancas, Titulo_Pretas,
+                Terminacao, Tabuleiro, Partida
+            FROM partidas
+        """)
+        linhas = self.cursor.fetchall()
+
+        vistos = set()
+        duplicados = []
+
+        for linha in linhas:
+            cod = linha[0]
+            chave = tuple(linha[1:])
+            if chave in vistos:
+                duplicados.append(cod)
+            else:
+                vistos.add(chave)
+
+        for cod in duplicados:
+            self.cursor.execute("DELETE FROM partidas WHERE cod = ?", (cod,))
+
+        self.conn.commit()
+        self.desconecta_bd()
+
+        self.select_lista()
+       
+
+
+
+        messagebox.showinfo("Limpeza concluída", f"{len(duplicados)} partidas duplicadas foram removidas.")
+        print(f" {len(duplicados)} partidas duplicadas foram removidas.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def mostrar_estatisticas(self):
+        # Esconde frames
+        self.frame_1.place_forget()
+        self.frame_3.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
+        #self.frame_2.place_forget()
+        
+        # Opcional: se quiser restaurar depois, pode criar função que chama frame.place(...) novamente
+        print("mostrar estatisticas")
+
+
+
+
+
+
+
+
+    def mostrar_partidas(self):
+        self.frame_3.place_forget()
+        self.frame_1.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
+        #self.frame_2.place(relx=0.02, rely=0.5, relwidth=0.96, relheight=0.46)
+        
+        print("mostrar partida")
+
+
+
+
+
+
+
+
+
     def Menus(self):
         menubar = Menu(self.janela)
         self.janela.config(menu= menubar)
@@ -347,9 +642,9 @@ class Aplicacao(funcs):
         menubar.add_cascade(label = "Opções", menu= filemenu)
         menubar.add_cascade(label = "sobre", menu= filemenu2)
 
-        filemenu.add_command(label = "sair")
-        filemenu2.add_command(label = "limpa cliente")
-
-
+        filemenu.add_command(label="Importar arquivo PGN", command=self.importar_pgn_dialogo)
+        filemenu.add_command(label = "Remover duplicadas",command=self.remover_duplicadas)
+        filemenu.add_command(label="Mostrar estatisticas", command=self.mostrar_estatisticas)
+        filemenu.add_command(label="Mostrar partidas", command=self.mostrar_partidas)
 
 Aplicacao()
