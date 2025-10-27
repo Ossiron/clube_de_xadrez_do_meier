@@ -219,6 +219,9 @@ class Aplicacao(funcs):
         self.frame_3 = tkinter.Frame(self.janela, bd=4, bg="white", highlightbackground="black", highlightthickness=3)
         self.frame_3.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
         self.frame_3.place_forget()
+        self.frame_4 = tkinter.Frame(self.janela, bd=4, bg="white", highlightbackground="black", highlightthickness=3)
+        self.frame_4.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.94)
+        self.frame_4.place_forget()
     def widgetsF1(self):
         # Cria um canvas e scrollbar para o lado esquerdo (campos do formulário)
         left_canvas = tkinter.Canvas(self.frame_1, bg="white")
@@ -605,6 +608,7 @@ class Aplicacao(funcs):
     def mostrar_estatisticas(self):
         # Esconde frames
         self.frame_1.place_forget()
+        self.frame_4.place_forget()
         self.frame_3.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
         #self.frame_2.place_forget()
         
@@ -620,12 +624,109 @@ class Aplicacao(funcs):
 
     def mostrar_partidas(self):
         self.frame_3.place_forget()
+        self.frame_4.place_forget()
         self.frame_1.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
         #self.frame_2.place(relx=0.02, rely=0.5, relwidth=0.96, relheight=0.46)
         
         print("mostrar partida")
 
 
+    def mostrar_desempenho_individual(self, jogador="brancas"):
+        # Esconde outras frames
+        self.frame_1.place_forget()
+        self.frame_2.place_forget()
+        self.frame_3.place_forget()
+
+        # Cria frame_4 se ainda não existir
+        if not hasattr(self, "frame_4"):
+            self.frame_4 = tkinter.Frame(self.janela, bd=4, bg="white", highlightbackground="black", highlightthickness=3)
+        self.frame_4.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.94)
+
+        # Limpa widgets antigos
+        for widget in self.frame_4.winfo_children():
+            widget.destroy()
+
+        # Obtém a partida selecionada
+        selecionado = self.listaPar.focus()
+        if not selecionado:
+            lbl = tkinter.Label(self.frame_4, text="Selecione uma partida primeiro.", bg="white", font=("Arial", 14))
+            lbl.pack(pady=20)
+            return
+
+        valores = self.listaPar.item(selecionado, "values")
+        if not valores:
+            return
+
+        jogador_brancas = valores[4]  # coluna Brancas
+        jogador_pretas = valores[5]   # coluna Pretas
+
+        # Define o jogador atual e cor
+        if jogador == "brancas":
+            jogador_atual = jogador_brancas
+            cor_titulo = "darkblue"
+        else:
+            jogador_atual = jogador_pretas
+            cor_titulo = "darkred"
+
+        # Busca estatísticas do jogador
+        self.conecta_bd()
+        self.cursor.execute("""
+            SELECT Resultado, Brancas, Pretas
+            FROM partidas
+            WHERE Brancas = ? OR Pretas = ?
+        """, (jogador_atual, jogador_atual))
+        partidas = self.cursor.fetchall()
+        self.desconecta_bd()
+
+        vitorias = empates = derrotas = 0
+        for resultado, brancas, pretas in partidas:
+            if resultado == "1-0":
+                if brancas == jogador_atual:
+                    vitorias += 1
+                else:
+                    derrotas += 1
+            elif resultado == "0-1":
+                if pretas == jogador_atual:
+                    vitorias += 1
+                else:
+                    derrotas += 1
+            else:
+                empates += 1
+
+        total = vitorias + empates + derrotas
+        if total == 0:
+            lbl = tkinter.Label(self.frame_4, text=f"Nenhuma partida registrada para {jogador_atual}.", bg="white", font=("Arial", 14))
+            lbl.pack(pady=20)
+            return
+
+        # Cria gráfico de pizza
+        fig, ax = plt.subplots(figsize=(5, 4), facecolor="white")
+        ax.pie(
+            [vitorias, empates, derrotas],
+            labels=["Vitórias", "Empates", "Derrotas"],
+            colors=["#4CAF50", "#FFC107", "#F44336"],
+            autopct=lambda p: f"{p:.1f}%" if p > 0 else "",
+            startangle=90
+        )
+        ax.set_title(f"Desempenho de {jogador_atual}", color=cor_titulo, fontsize=14)
+
+        canvas = FigureCanvasTkAgg(fig, master=self.frame_4)
+        canvas.draw()
+        canvas.get_tk_widget().pack(fill=tkinter.BOTH, expand=True, padx=20, pady=20)
+
+        # Botão para alternar jogador
+        def alternar():
+            if jogador == "brancas":
+                self.mostrar_desempenho_individual("pretas")
+            else:
+                self.mostrar_desempenho_individual("brancas")
+
+        btn_alternar = tkinter.Button(self.frame_4, text="Alternar Jogador", command=alternar, bg="lightgray")
+        btn_alternar.place(relx=0.4, rely=0.02, relwidth=0.2, relheight=0.06)
+
+        # Botão para voltar
+        btn_voltar = tkinter.Button(self.frame_4, text="Voltar", command=self.mostrar_partidas, bg="lightgray")
+        btn_voltar.place(relx=0.85, rely=0.02, relwidth=0.1, relheight=0.06)
 
 
 
@@ -646,5 +747,7 @@ class Aplicacao(funcs):
         filemenu.add_command(label = "Remover duplicadas",command=self.remover_duplicadas)
         filemenu.add_command(label="Mostrar estatisticas", command=self.mostrar_estatisticas)
         filemenu.add_command(label="Mostrar partidas", command=self.mostrar_partidas)
+        filemenu.add_command(label="Mostrar desempenho individual", command=self.mostrar_desempenho_individual)
+
 
 Aplicacao()
