@@ -220,7 +220,7 @@ class Aplicacao(funcs):
         self.frame_3.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
         self.frame_3.place_forget()
         self.frame_4 = tkinter.Frame(self.janela, bd=4, bg="white", highlightbackground="black", highlightthickness=3)
-        self.frame_4.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.94)
+        self.frame_4.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46)
         self.frame_4.place_forget()
     def widgetsF1(self):
         # Cria um canvas e scrollbar para o lado esquerdo (campos do formulário)
@@ -633,8 +633,8 @@ class Aplicacao(funcs):
 
     def mostrar_desempenho_individual(self, jogador="brancas"):
         # Esconde outras frames
+        
         self.frame_1.place_forget()
-        self.frame_2.place_forget()
         self.frame_3.place_forget()
 
         # Cria frame_4 se ainda não existir
