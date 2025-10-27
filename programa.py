@@ -329,20 +329,6 @@ class Aplicacao(funcs):
         self.listaPar.bind("<<TreeviewSelect>>", self.mostrar_dados_selecionados)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def graficos_frame3(self, jogador="brancas"):
         # Limpa widgets antigos
         for widget in self.frame_3.winfo_children():
@@ -424,27 +410,6 @@ class Aplicacao(funcs):
 
         btn_alternar = tkinter.Button(self.frame_3, text="Alternar Jogador", command=alternar_grafico)
         btn_alternar.place(relx=0.4, rely=0.01, relwidth=0.2, relheight=0.07)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -594,17 +559,6 @@ class Aplicacao(funcs):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     def mostrar_estatisticas(self):
         # Esconde frames
         self.frame_1.place_forget()
@@ -614,9 +568,6 @@ class Aplicacao(funcs):
         
         # Opcional: se quiser restaurar depois, pode criar função que chama frame.place(...) novamente
         print("mostrar estatisticas")
-
-
-
 
 
 
@@ -699,7 +650,8 @@ class Aplicacao(funcs):
             lbl.pack(pady=20)
             return
 
-        # Cria gráfico de pizza
+        
+        #gráfico de pizza
         fig, ax = plt.subplots(figsize=(5, 4), facecolor="white")
         ax.pie(
             [vitorias, empates, derrotas],
@@ -712,7 +664,17 @@ class Aplicacao(funcs):
 
         canvas = FigureCanvasTkAgg(fig, master=self.frame_4)
         canvas.draw()
-        canvas.get_tk_widget().pack(fill=tkinter.BOTH, expand=True, padx=20, pady=20)
+        canvas.get_tk_widget().pack(fill=tkinter.BOTH, expand=True, padx=20, pady=(20, 10))
+
+        # Label com informações numéricas
+        lbl_numeros = tkinter.Label(
+            self.frame_4,
+            text=f"Vitórias: {vitorias} / Empates: {empates} / Derrotas: {derrotas}",
+            bg="white",
+            font=("Arial", 12)
+        )
+        lbl_numeros.pack(pady=(0, 20))
+
 
         # Botão para alternar jogador
         def alternar():
@@ -727,11 +689,6 @@ class Aplicacao(funcs):
         # Botão para voltar
         btn_voltar = tkinter.Button(self.frame_4, text="Voltar", command=self.mostrar_partidas, bg="lightgray")
         btn_voltar.place(relx=0.85, rely=0.02, relwidth=0.1, relheight=0.06)
-
-
-
-
-
 
 
     def Menus(self):
